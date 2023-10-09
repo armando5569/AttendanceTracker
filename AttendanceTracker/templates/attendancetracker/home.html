@@ -1,23 +1,71 @@
+<!--Home page done by Armando sanchez and Dayon Taylor-->
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Attendance Tracker</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+  <title>Student Attendance Tracker</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-    <H1>Login</H1>
+    <H1>Student attendance tracker</H1>
+    <p>
+        Welcome to the student attendance tracker by <i>"new code who this?"</i>. 
+        We are pleased to provide exceptional student tracking along with a very 
+        easy to use user interface to make everything as seamless as possible.
+    </p>
+    <br>
+    <h4>Please indicate weather you are a new user or returning user:</h4>
     <div>
-        <label for="username"><b>Username</b></label>
+        <button type="submit">New user</button>
+        <br>
+        <br>
+        <button type="submit">Existing user</button>
+        <br>
+        <br>
+    </div>
+    <!--if new user fill out this survey-->
+    <h4>If new user</h4>
+    <form id="survey-form">
+        <label class="questions" for="fname-label">First Name:</label>
+        <input class="text-box" placeholder="John" id="firstName" type="text" required></input>
+        <br>
+        <label class="questions" for="lname-label">Last Name:</label>
+        <input class="text-box" placeholder="Doe" id="lastName" type="text" required></input>
+        <br>
+        <label class="questions" for="email-label">Email address:</label>
+        <input class="text-box" placeholder="JohnDoe@gmail.com" id="email" type="email" ></input>
+        <br>
+         <label class="questions" for="password-label">Password:</label>
+        <input class="text-box" placeholder="Fiefhowef23" id="password" type="password"></input>
+        <br>
+        <label class="questions" for="password-label">Password:</label>
+        <input class="text-box" placeholder="Fiefhowef23" id="repPassword" type="password"></input>
+        <br>
+    </form>
+    <h4>Please indicate weather you are a student or teacher below:</h4>
+    <div>
+        <button type="submit">Teacher</button>
+        <br>
+        <br>
+        <button type="submit">Student</button>
+        <br>
+        <br>
+    </div>
+    <div>
+        <label for="username"><b>Please enter your Username:</b></label>
         <input type="text" placeholder="Enter Username" name="username" required>
-
-        <label for="password"><b>Password</b></label>
+        <br>
+        <label for="password"><b>Password:</b></label>
         <input type="password" placeholder="Enter Password" name="password" required>
-
+        <br>
+        <br>
+    </div>
+    <div>
         <button type="submit">Login</button>
     </div>
+    
 </body>
 
 </html>
-<!-- testing the commit function-->
