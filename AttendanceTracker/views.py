@@ -4,3 +4,9 @@ from django.http import HttpResponse
 
 def home(request):
     return render(request, 'attendancetracker/home.html')
+
+def signup(request):
+    return render(request, 'attendancetracker/signup.html')
+
+def login(request):
+    return render(request, 'attendancetracker/login.html')

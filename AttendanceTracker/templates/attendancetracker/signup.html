@@ -1,0 +1,30 @@
+{% extends "attendancetracker\home.html" %} {% block content %}
+<!--if new user fill out this survey-->
+<h4>If new user</h4>
+<form id="survey-form">
+    <label class="questions" for="fname-label">First Name:</label>
+    <input class="text-box" placeholder="John" id="firstName" type="text" required></input>
+    <br>
+    <label class="questions" for="lname-label">Last Name:</label>
+    <input class="text-box" placeholder="Doe" id="lastName" type="text" required></input>
+    <br>
+    <label class="questions" for="email-label">Email address:</label>
+    <input class="text-box" placeholder="JohnDoe@gmail.com" id="email" type="email"></input>
+    <br>
+    <label class="questions" for="password-label">Password:</label>
+    <input class="text-box" placeholder="Fiefhowef23" id="password" type="password"></input>
+    <br>
+    <label class="questions" for="password-label">Password:</label>
+    <input class="text-box" placeholder="Fiefhowef23" id="repPassword" type="password"></input>
+    <br>
+    <h4>Please indicate weather you are a student or teacher below:</h4>
+    <div>
+        <button type="submit">Teacher</button>
+        <br>
+        <br>
+        <button type="submit">Student</button>
+        <br>
+        <br>
+    </div>
+</form>
+{% endblock content %}
