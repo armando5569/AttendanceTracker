@@ -2,12 +2,25 @@
 {% extends "base.html" %}
 
 {% block content %}
+<H1>Student Attendance Tracker</H1>
+
+<!-- home page when user is logged in -->
 {% if user.is_authenticated %}
-  Hi {{ user.username }}!
+  <h2>Hi {{ user.username }}! </h2>
+  <p>This is a placeholder until the class lists become available. </p>
   <p><a href="{% url 'logout' %}">Log Out</a></p>
   <p><a href="{% url 'password_reset' %}">Reset Password</a></p>
+
+<!-- home page when user is not logged in -->
 {% else %}
-  <p>You are not logged in</p>
+  <p>
+    Welcome to the student attendance tracker by <i>"new code who this?"</i>. 
+    We are pleased to provide exceptional student tracking along with a very easy to use user interface 
+    to make everything as seamless as possible.
+  </p>
+  <br>
   <a href="{% url 'login' %}">Log In</a>
+  <a href="{% url 'signup' %}">New User</a>
+  
 {% endif %}
 {% endblock %}
