@@ -2,6 +2,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class="container py-5">
 <H1>Student Attendance Tracker</H1>
 
 <!-- home page when user is logged in -->
@@ -23,6 +24,7 @@
   <br>
   <br>
   <a class="btn btn-primary" href="{% url 'signup' %}" role="button">New User</a>
+  </div>
   
 {% endif %}
 {% endblock %}
