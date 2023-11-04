@@ -1,0 +1,30 @@
+<!-- temp page to confirm login by Emily -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container py-5">
+<H1>Student Attendance Tracker</H1>
+
+<!-- home page when user is logged in -->
+{% if user.is_authenticated %}
+  <h2>Hi {{ user.username }}! </h2>
+  <p>This is a placeholder until the class lists become available. </p>
+  <p><a href="{% url 'logout' %}">Log Out</a></p>
+  <p><a href="{% url 'password_reset' %}">Reset Password</a></p>
+
+<!-- home page when user is not logged in -->
+{% else %}
+  <p>
+    Welcome to the student attendance tracker by <i>"new code who this?"</i>. 
+    We are pleased to provide exceptional student tracking along with a very easy to use user interface 
+    to make everything as seamless as possible.
+  </p>
+  <br>
+  <a class="btn btn-primary" href="{% url 'login' %}" role="button">Log In</a>
+  <br>
+  <br>
+  <a class="btn btn-primary" href="{% url 'signup' %}" role="button">New User</a>
+  </div>
+  
+{% endif %}
+{% endblock %}
