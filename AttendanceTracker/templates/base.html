@@ -14,7 +14,19 @@
 <body>
   <div class="container">
     <nav class="navbar ">
-      <a class="nav-item nav-link" href="{% url 'home' %}">Home</a>
+      <div class="d-flex justify-content-between">
+        <a class="nav-item nav-link" href="{% url 'home' %}">Home</a>
+      </div>
+      
+      <div class="d-flex justify-content-between">
+        <h1>Attendance Tracker</h1>
+      </div>
+
+      <div class="d-flex justify-content-between">
+        {% if user.is_authenticated %}
+          <p><a href="{% url 'logout' %}">Log Out</a></p>
+        {% endif %}
+      </div>
     </nav>
   </div>
   
