@@ -26,9 +26,13 @@ urlpatterns = [
     path("accounts/", include("accounts.urls")),
     path("accounts/", include("django.contrib.auth.urls")), 
     path("", TemplateView.as_view(template_name="home.html"), name="home"),
-    #path('', views.home, name='home'),
-    #path('signup/', views.signup, name='signup'),
-    #path('login/', views.login, name='login'),
+
+    #app function pages
+    path('confirmation/', views.confirmation, name='confirmation'),
+    path('courses/', views.courses, name='courses'),
+    path('editcourse/', views.editcourse, name='editcourse'),
+    path('reports/', views.reports, name='reports'),
+    path('startclass/', views.startclass, name='startclass')
     
 ]
 

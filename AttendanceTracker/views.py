@@ -1,12 +1,19 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-# Create your views here.
 
-def home(request):
-    return render(request, 'attendancetracker/home.html')
 
-def signup(request):
-    return render(request, 'attendancetracker/signup.html')
+#app function pages
+def confirmation(request):
+    return render(request, 'attendancetracker/confirmation.html')
 
-def login(request):
-    return render(request, 'attendancetracker/login.html')
+def courses(request):
+    return render(request, 'attendancetracker/courses.html')
+
+def editcourse(request):
+    return render(request, 'attendancetracker/editcourse.html')
+
+def reports(request):
+    return render(request, 'attendancetracker/reports.html')
+
+def startclass(request):
+    return startclass(request, 'attendancetracker/startclass.html')
