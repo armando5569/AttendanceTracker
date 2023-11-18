@@ -9,6 +9,18 @@
 {% if user.is_authenticated %}
   <h2>Hi {{ user.username }}! </h2>
   <p>This is a placeholder until the class lists become available. </p>
+
+      <!--Testing only-->
+      {% if user.roleID == 3 %}
+        <p>You are an Administrator</p>
+      {% elif  user.roleID == 2 %}
+        <p>You are a Teacher</p>
+      {% elif  user.roleID == 1 %}
+        <p>You are a Student</p>
+      {% else %}
+        <p>You do not have a role</p>
+      {% endif %}
+
   <p><a href="{% url 'logout' %}">Log Out</a></p>
   <p><a href="{% url 'password_reset' %}">Reset Password</a></p>
 
