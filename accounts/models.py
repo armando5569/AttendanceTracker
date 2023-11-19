@@ -15,10 +15,6 @@ class User(AbstractUser):
     userID = models.AutoField(primary_key=True, unique=True, editable=False)
     roleID = models.IntegerField(choices=Role.choices, default=base_role)
 
-    def save(self, *args, **kwargs):
-        if not self.pk:
-            self.role = self.base_role
-            return super().save(*args, **kwargs)
     
     def getRole(self):
         return self.role
