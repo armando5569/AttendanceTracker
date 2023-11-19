@@ -1,5 +1,6 @@
 <!-- Home page done by Armando Sanchez and Dayon Taylor-->
 <!-- Converted to template and navbar created by Emily Howard-->
+<!--Drop down menu added  by Mitch Z-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +10,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   {% load static %} 
-  <link rel="stylesheet" href="{% static 'styles.css' %}"> <!-- Add this line to include your CSS file -->
+  <link rel="stylesheet" href="{% static 'styles.css' %}"> 
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap">
+
+
 </head>
 
 <body>
@@ -25,10 +30,12 @@
         </a>
       </div>
       
-      <!--Site name on navbar-->
-      <div class="d-flex justify-content-between">
-        <h1>Attendance Tracker</h1>
-      </div>
+      <!-- Site name on navbar as a link to home -->
+<div class="d-flex justify-content-between">
+  <a class="navbar-title" href="{% url 'home' %}">
+      <h1>Attendance Tracker</h1>
+  </a>
+</div>
 
       <!-- User options on navbar. Dropdown button and menu -->
       <div class="dropdown">
@@ -45,10 +52,12 @@
       <a class="dropdown-item" href="{% url 'reports' %}">Reports</a>
       <a class="dropdown-item" href="{% url 'courses' %}">Courses</a>
       <a class="dropdown-item" href="{% url 'editcourse' %}">Add Courses</a>
+      <a class="dropdown-item" href="{% url 'studcode' %}">Code Entry</a>
     {% else %}
       <!-- Items for non-authenticated users -->
       <a class="dropdown-item" href="{% url 'courses' %}">Courses</a>
       <a class="dropdown-item" href="{% url 'logout' %}">Log Out</a>
+      
       
     {% endif %}
     

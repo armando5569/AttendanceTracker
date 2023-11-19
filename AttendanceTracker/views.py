@@ -61,3 +61,22 @@ def update_course(request):
 
     return render(request, 'attendancetracker/courses.html')
 
+def process_code(request):
+    if request.method == 'POST':
+        entered_code = request.POST.get('code', '')
+        # Perform validation or check the entered code against your database
+        # If the code is valid, redirect to the specific template
+        if is_valid_code(entered_code):
+            return redirect('attendancetracker/confirmation.html')
+        else:
+            # Code is invalid, you may want to show an error message
+            return render(request, 'attendancetracker/studcode.html', {'error': 'Invalid code'})
+    else:
+        # Handle GET requests to this view
+        return render(request, 'attendancetracker/studcode.html')
+
+def is_valid_code(code):
+    # Implement your validation logic here (e.g., check against the database)
+    # Return True if the code is valid, False otherwise
+    return code == '123456'  # Replace with your actual validation logic
+
