@@ -35,35 +35,25 @@
         <button class="btn btn-primary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Menu <span class="caret"></span>
         </button>
-        <div class="dropdown-menu">
-    <!-- You can add your templates as links in the dropdown menu -->
-    {% if user.is_authenticated %}
-      <!-- User-specific items for authenticated users -->
-      
-      <a class="dropdown-item" href="{% url 'logout' %}">Log Out</a>
-      <a class="dropdown-item" href="{% url 'startclass' %}">Start Class</a>
-      <a class="dropdown-item" href="{% url 'reports' %}">Reports</a>
-      <a class="dropdown-item" href="{% url 'courses' %}">Courses</a>
-      <a class="dropdown-item" href="{% url 'editcourse' %}">Add Courses</a>
-    {% else %}
-      <!-- Items for non-authenticated users -->
-      <a class="dropdown-item" href="{% url 'courses' %}">Courses</a>
-      <a class="dropdown-item" href="{% url 'logout' %}">Log Out</a>
-      
-    {% endif %}
-    
-    
-    
-    <!-- Add more links as needed -->
-  </div>
-</div>
-      <div class="d-flex justify-content-between">        
+      <div class="dropdown-menu">
+        <!-- You can add your templates as links in the dropdown menu -->
         {% if user.is_authenticated %}
-          <p><a href="{% url 'logout' %}">Log Out</a></p>
+          <!-- User-specific items for authenticated users -->
+          
+          <a class="dropdown-item" href="{% url 'logout' %}">Log Out</a>
+          <a class="dropdown-item" href="{% url 'password_reset' %}">Reset Password</a>
+          <a class="dropdown-item" href="{% url 'startclass' %}">Start Class</a>
+          <a class="dropdown-item" href="{% url 'reports' %}">Reports</a>
+          <a class="dropdown-item" href="{% url 'courses' %}">Courses</a>
+          <a class="dropdown-item" href="{% url 'editcourse' %}">Add Courses</a>
         {% else %}
-          <p><a href="{% url 'login' %}">Log In</a></p>
-        {% endif %}
+          <!-- Items for non-authenticated users -->
+          <a class="dropdown-item" href="{% url 'courses' %}">Courses</a>
+          <a class="dropdown-item" href="{% url 'login' %}">Log In</a>
+          
+        {% endif %}    
       </div>
+
     </nav>
   </div>
   
