@@ -1,0 +1,77 @@
+/*Created By Mitchell Zahoran */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f2e5d7; /* Warm beige background */
+  color: #333; /* Dark text color for readability */
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.header {
+  background-color: #5e4840; /* Deep brown header */
+  color: #fff;
+  padding: 15px;
+  text-align: center;
+}
+
+.section {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle box shadow for depth */
+}
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table th, .table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.table th {
+  background-color: #f2f2f2;
+  text-align: left;
+}
+
+form {
+  width: 300px;
+  margin: 0 auto;
+}
+
+input[type="text"],
+input[type="password"],
+button {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #5e4840; /* Match the header color */
+  color: #fff;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #634d45; /* Slightly darker color on hover */
+}
+
+.alert {
+  padding: 20px;
+  background-color: #c96e4a; /* Warm orange for alerts */
+  color: white;
+  margin-bottom: 15px;
+}

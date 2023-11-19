@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from AttendanceTracker import views
 from django.views.generic.base import TemplateView
+from AttendanceTracker.views import startclass
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -32,7 +33,10 @@ urlpatterns = [
     path('courses/', views.courses, name='courses'),
     path('editcourse/', views.editcourse, name='editcourse'),
     path('reports/', views.reports, name='reports'),
-    path('startclass/', views.startclass, name='startclass')
+    path('startclass/', views.startclass, name='startclass'),
+    path('add_course/', views.add_course, name='add_course'),
+    path('update_course/', views.update_course, name='update_course'),
+    
     
 ]
 
