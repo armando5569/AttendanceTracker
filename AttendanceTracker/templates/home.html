@@ -8,13 +8,13 @@
 <!-- home page when user is logged in -->
 {% if user.is_authenticated %}
 
-  <h2>Hi 
+  <h2>Hi, 
     {% if user.first_name != "" %}
-      {{ user.first_name }}
+      {{ user.first_name }}!
     {% else %}
-      {{ user.username }}
-    {% endif %}
-  ! </h2>
+      {{ user.username }}!
+    {% endif %} 
+  </h2>
   <br>
 
   {% if user.roleID == 3 %}
