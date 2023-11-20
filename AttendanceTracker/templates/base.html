@@ -31,63 +31,47 @@
       </div>
       
       <!-- Site name on navbar as a link to home -->
-<div class="d-flex justify-content-between">
-  <a class="navbar-title" href="{% url 'home' %}">
-      <h1>Attendance Tracker</h1>
-  </a>
-</div>
+      <div class="d-flex justify-content-between">
+        <a class="navbar-title" href="{% url 'home' %}">
+            <h1>Attendance Tracker</h1>
+        </a>
+      </div>
 
       <!-- User options on navbar. Dropdown button and menu -->
-      <div class="dropdown">
+      <div class="dropdown d-flex justify-content-between">
         <button class="btn btn-primary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Menu <span class="caret"></span>
         </button>
 
         <div class="dropdown-menu">
-    <!-- You can add your templates as links in the dropdown menu -->
-    {% if user.is_authenticated %}
-      <!-- User-specific items for authenticated users -->
-      
-      <a class="dropdown-item" href="{% url 'logout' %}">Log Out</a>
-      <a class="dropdown-item" href="{% url 'password_reset' %}">Reset Password</a>
-      <a class="dropdown-item" href="{% url 'startclass' %}">Start Class</a>
-      <a class="dropdown-item" href="{% url 'reports' %}">Reports</a>
-      <a class="dropdown-item" href="{% url 'courses' %}">Courses</a>
-      <a class="dropdown-item" href="{% url 'editcourse' %}">Add Courses</a>
-      <a class="dropdown-item" href="{% url 'studcode' %}">Code Entry</a>
-    {% else %}
-      <!-- Items for non-authenticated users -->
-      <a class="dropdown-item" href="{% url 'courses' %}">Courses</a>
-      <a class="dropdown-item" href="{% url 'logout' %}">Log Out</a>
-      
-      
-    {% endif %}
-    
-    
-    
-    <!-- Add more links as needed -->
-  </div>
-</div>
-      <div class="d-flex justify-content-between">        
-      <div class="dropdown-menu">
         <!-- You can add your templates as links in the dropdown menu -->
->>>>>>> 2a8ddfc8cf01d9ef4320f1f129685dc46ed1912a
         {% if user.is_authenticated %}
           <!-- User-specific items for authenticated users -->
-          
           <a class="dropdown-item" href="{% url 'logout' %}">Log Out</a>
           <a class="dropdown-item" href="{% url 'password_reset' %}">Reset Password</a>
-          <a class="dropdown-item" href="{% url 'startclass' %}">Start Class</a>
+          {% if user.roleID == 3 %}
+            <a class="dropdown-item" href="{% url 'courses' %}">Courses</a>
+            <a class="dropdown-item" href="{% url 'editcourse' %}">Add Courses</a>
+          {% elif  user.roleID == 2 %}
+            <a class="dropdown-item" href="{% url 'startclass' %}">Start Class</a>
+          {% elif  user.roleID == 1 %}
+            <a class="dropdown-item" href="{% url 'studcode' %}">Code Entry</a>
+          {% endif %}
           <a class="dropdown-item" href="{% url 'reports' %}">Reports</a>
-          <a class="dropdown-item" href="{% url 'courses' %}">Courses</a>
-          <a class="dropdown-item" href="{% url 'editcourse' %}">Add Courses</a>
+          
+          
         {% else %}
           <!-- Items for non-authenticated users -->
           <a class="dropdown-item" href="{% url 'courses' %}">Courses</a>
-          <a class="dropdown-item" href="{% url 'login' %}">Log In</a>
-          
-        {% endif %}    
+          <a class="dropdown-item" href="{% url 'logout' %}">Log Out</a>
+        {% endif %}
+        <!-- Add more links as needed -->
+
+        <!--This /div is intentionally missing. It allows the user to keep the menu open upon hovering over the button. 
+          The menu will disappear when the cursor is not longer hovering over the button or options
+          When the /div is present, button must be clicked so menu will remain open for selection-->
       </div>
+</div>
 
     </nav>
   </div>
