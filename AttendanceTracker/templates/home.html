@@ -4,29 +4,24 @@
 {% block content %}
 <div class="container py-5">
 <H1>Student Attendance Tracker</H1>
-
+<br>
 <!-- home page when user is logged in -->
 {% if user.is_authenticated %}
-  <h2>Hi {{ user.username }}! </h2>
 
-    <!--Testing only
-    {% if user.roleID == 3 %}
-      <p>You are an Administrator</p>
-    {% elif  user.roleID == 2 %}
-      <p>You are a Teacher</p>
-    {% elif  user.roleID == 1 %}
-      <p>You are a Student</p>
+  <h2>Hi 
+    {% if user.first_name != "" %}
+      {{ user.first_name }}
     {% else %}
-      <p>You do not have a role</p>
+      {{ user.username }}
     {% endif %}
-    -->
+  ! </h2>
+  <br>
 
   {% if user.roleID == 3 %}
     <p>You are logged in as an Administrator</p>
     <div>
-      <h2>For Administrators: </h2>
-      <a class="btn btn-primary" href="{% url 'courses' %}" role="button">Courses</a>
-      <a class="btn btn-primary" href="{% url 'editcourse' %}" role="button">Add Courses</a>
+      <a class="btn btn-primary" href="{% url 'courses' %}" role="button">Course List</a>
+      
       <br>
       <br>
     </div>
