@@ -3,24 +3,21 @@ from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 import secrets
 import string
-from django.shortcuts import render, redirect
 
 
 
 #app function pages
+
+#
+# for all users 
+#
+
 @login_required
 def confirmation(request):
     return render(request, 'attendancetracker/confirmation.html')
 
 @login_required
-def courses(request):
-    return render(request, 'attendancetracker/courses.html')
-
-@login_required
-def editcourse(request):
-    return render(request, 'attendancetracker/editcourse.html')
-
-@login_required
+#page shows the options for creating a report
 def reports(request):
     return render(request, 'attendancetracker/reports.html')
 
@@ -28,16 +25,19 @@ def reports(request):
 def absent_view(request):
     return render(request, 'attendancetracker/absent.html')
 
+#
+# for administrators only 
+#
+
 @login_required
-def startclass(request):
-    if request.method == 'POST':
-        # Generate a random code
-        code = ''.join(secrets.choice(string.ascii_uppercase + string.digits) for _ in range(6))
+# page shows the list of courses. 
+def courses(request):
+    return render(request, 'attendancetracker/courses.html')
 
-        # Render the template with the generated code and a message
-        return render(request, 'attendancetracker/startclass.html', {'code': code, 'message': 'Class started. Share this code with your students.'})
-
-    return render(request, 'attendancetracker/startclass.html', {'code': None, 'message': None})
+@login_required
+#page shows the form to add/edit courses. 
+def editcourse(request):
+    return render(request, 'attendancetracker/editcourse.html')
 
 @login_required
 def add_course(request):
@@ -60,6 +60,26 @@ def update_course(request):
         return redirect('confirmation')
 
     return render(request, 'attendancetracker/courses.html')
+
+
+#
+# for teachers only 
+#
+
+@login_required
+def startclass(request):
+    if request.method == 'POST':
+        # Generate a random code
+        code = ''.join(secrets.choice(string.ascii_uppercase + string.digits) for _ in range(6))
+
+        # Render the template with the generated code and a message
+        return render(request, 'attendancetracker/startclass.html', {'code': code, 'message': 'Class started. Share this code with your students.'})
+
+    return render(request, 'attendancetracker/startclass.html', {'code': None, 'message': None})
+
+#
+# for students only 
+#
 
 def process_code(request):
     if request.method == 'POST':
