@@ -2,8 +2,6 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 import uuid
 
-# Create your models here.
-
 class User(AbstractUser):
     class Role(models.IntegerChoices):
         STUDENT = 1
@@ -22,6 +20,7 @@ class User(AbstractUser):
 
 class Course(models.Model):
     courseID = models.CharField(max_length=16, primary_key=True)
+    courseName = models.CharField(max_length=32)
     
     def __str__(self):
         return self.courseID
@@ -38,6 +37,8 @@ class Classes(models.Model):
     courseID = models.ForeignKey(Course, on_delete=models.CASCADE, related_name="ClassCourseID")
     sectionID = models.ForeignKey(Section, on_delete=models.CASCADE, related_name="ClassSectionID")
     checkincode = models.CharField(max_length=6, blank=True, null=True)
+    starttime = models.DateField(auto_now_add=True)
+    endtime = models.DateField(auto_now_add=False, null=True)
 
 
 class Enrollment(models.Model):

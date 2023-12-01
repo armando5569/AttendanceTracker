@@ -1,6 +1,10 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
+
+from accounts.models import *
+from .forms import *
+
 import secrets
 import string
 
@@ -32,12 +36,21 @@ def absent_view(request):
 @login_required
 # page shows the list of courses. 
 def courses(request):
-    return render(request, 'attendancetracker/courses.html')
+    context ={}
+ 
+    # add the dictionary during initialization
+    context["Courses"] = Course.objects.all()
+    return render(request, 'attendancetracker/courses.html', context)
 
 @login_required
 #page shows the form to add/edit courses. 
 def editcourse(request):
-    return render(request, 'attendancetracker/editcourse.html')
+    courseContent = {}
+    form = CourseForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+    courseContent['form']= form
+    return render(request, 'attendancetracker/editcourse.html', courseContent)
 
 @login_required
 def add_course(request):

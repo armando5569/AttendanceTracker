@@ -15,40 +15,38 @@
       <tr>
         <th scope="col">Course Name</th>
         <th scope="col">Course ID</th>
+        <!--
         <th scope="col">Section Number</th>
         <th scope="col">Instructor</th>
+        -->
       </tr>
     </thead> 
     <tbody>
+      {% for course in Courses %}.
       <tr>
-        <tr>
-          <td>
-            Courses.CourseID
-          </td>
-          <td>
-            Courses.CourseName
-          </td>
-          <td>
-            Section Number?
-          </td>
-          <td>
-            Teacher name using TeacherID from TeacherAssignment
-          </td>
-          <td>
-            <a type="button" class="btn btn-secondary btn-sm" href= # role="button" disabled>Edit Course</a>
-          </td>
-        </tr>
+        <td>
+          {{ course.courseID }}
+        </td>
+        <td>
+          {{ course.courseName }}
+        </td>
+        <!--
+        <td>
+          Section Number?
+        </td>
+        <td>
+          Teacher name using TeacherID from TeacherAssignment
+        </td>
+        <td>
+          <a type="button" class="btn btn-secondary btn-sm" href= # role="button" disabled>Edit Course</a>
+        </td>
+        -->
       </tr>
-      <!-- 
-      {% for course in courses %}
-        <tr>
-            <td>{{course.courseID}}</td>    
-        </tr>
       {% endfor %}
-      -->
     </tbody>
   </table>
 
+  
   <br>
   <a class="btn btn-primary" href="{% url 'editcourse' %}" role="button">Add Courses</a>
   </div>

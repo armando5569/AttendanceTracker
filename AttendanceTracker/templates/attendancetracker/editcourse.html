@@ -2,18 +2,29 @@
 
 
 {% block content %}
+
 <div class="container py-5">
     <h1>Add Courses</h1>
     <!-- Need to create a menu to edit courses for sys admin -->
-</div>
 
-<div class="container py-5">
+    <!--Temp form for tutorial-->
+    <form method="POST" enctype="multipart/form-data">
+ 
+        <!-- Security token -->
+        {% csrf_token %}
+     
+        <!-- Using the formset -->
+        {{ form.as_p }}
+         
+        <input type="submit" value="Submit">
+    </form>
+
     <!-- Add Course Button -->
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCourseModal">
         Add Course
     </button>
 
-    <!-- Add Course Modal -->
+    <!-- Add Course Popup Form -->
     <div class="modal fade" id="addCourseModal" tabindex="-1" role="dialog" aria-labelledby="addCourseModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -23,10 +34,19 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
+
+                <!-- Form for adding a new course -->
                 <div class="modal-body">
-                    <!-- Form for adding a new course -->
                     <form method="post" action="{% url 'add_course' %}">
                         {% csrf_token %}
+                        <div class="form-group">
+                            <label for="courseID">Course ID:</label>
+                            <input type="text" class="form-control" id="courseID" name="courseID">
+                        </div>
+                        <div class="form-group">
+                            <label for="courseName">Course Name:</label>
+                            <input type="text" class="form-control" id="courseName" name="courseName">
+                        </div>
                         <div class="form-group">
                             <label for="teacher">Teacher:</label>
                             <select class="form-control" id="teacher" name="teacher">
@@ -36,10 +56,6 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="courseName">Course Name:</label>
-                            <input type="text" class="form-control" id="courseName" name="courseName">
-                        </div>
-                        <div class="form-group">
                             <label for="students">Students:</label>
                             <select class="form-control" id="students" name="students" multiple>
                                 {% for student in students %}
@@ -47,6 +63,9 @@
                                 {% endfor %}
                             </select>
                         </div>
+
+                        <!--Start/End date is currently not being tracked-->
+                        <!--
                         <div class="form-group">
                             <label for="startDate">Start Date:</label>
                             <input type="date" class="form-control" id="startDate" name="startDate">
@@ -55,14 +74,7 @@
                             <label for="endDate">End Date:</label>
                             <input type="date" class="form-control" id="endDate" name="endDate">
                         </div>
-                        <div class="form-group">
-                            <label for="startTime">Start Time:</label>
-                            <input type="time" class="form-control" id="startTime" name="startTime">
-                        </div>
-                        <div class="form-group">
-                            <label for="endTime">End Time:</label>
-                            <input type="time" class="form-control" id="endTime" name="endTime">
-                        </div>
+                        -->
                         <!-- Include the form fields for adding a new course as before -->
                         <button type="submit" class="btn btn-primary">Save</button>
                     </form>
