@@ -36,16 +36,19 @@ def absent_view(request):
 @login_required
 # page shows the list of courses. 
 def courses(request):
-    context ={}
+    #coursedetails ={}
+    courselistings ={}
  
     # add the dictionary during initialization
-    context["Courses"] = Course.objects.all()
-    return render(request, 'attendancetracker/courses.html', context)
+    #coursedetails["Courses"] = Course.objects.all()
+    courselistings["Courses"] = TeacherAssignment.objects.all()
+    return render(request, 'attendancetracker/courses.html', courselistings)
 
 @login_required
 #page shows the form to add/edit courses. 
 def editcourse(request):
     courseContent = {}
+
     form = CourseForm(request.POST or None)
     if form.is_valid():
         form.save()

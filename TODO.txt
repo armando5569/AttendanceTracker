@@ -8,6 +8,3 @@ move start class form to Home page (Teacher)
     move scripts to seperate file
 
 Limit access to pages based on role
-
-Update models
-    Course needs to have Course Name field

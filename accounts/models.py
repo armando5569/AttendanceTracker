@@ -13,7 +13,7 @@ class User(AbstractUser):
     userID = models.AutoField(primary_key=True, unique=True, editable=False)
     roleID = models.IntegerField(choices=Role.choices, default=base_role)
 
-    
+
     def getRole(self):
         return self.role
 

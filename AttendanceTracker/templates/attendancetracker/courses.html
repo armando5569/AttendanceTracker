@@ -15,39 +15,37 @@
       <tr>
         <th scope="col">Course Name</th>
         <th scope="col">Course ID</th>
-        <!--
         <th scope="col">Section Number</th>
         <th scope="col">Instructor</th>
-        -->
+        <th></th>
       </tr>
     </thead> 
     <tbody>
-      {% for course in Courses %}.
+      {% for listing in Courses %}
       <tr>
         <td>
-          {{ course.courseID }}
+          {{ listing.courseID }}
         </td>
         <td>
-          {{ course.courseName }}
-        </td>
-        <!--
-        <td>
-          Section Number?
+          Course Name
         </td>
         <td>
-          Teacher name using TeacherID from TeacherAssignment
+          {{listing.sectionID}}
+        </td>
+        <td>
+          {{listing.userID}}
         </td>
         <td>
           <a type="button" class="btn btn-secondary btn-sm" href= # role="button" disabled>Edit Course</a>
         </td>
-        -->
       </tr>
       {% endfor %}
     </tbody>
   </table>
-
   
   <br>
+  
   <a class="btn btn-primary" href="{% url 'editcourse' %}" role="button">Add Courses</a>
+
   </div>
 {% endblock content %}
