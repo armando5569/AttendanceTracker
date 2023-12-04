@@ -1,0 +1,13 @@
+move class code entry to Home page. (Students)
+    move scripts to seperate file
+
+move add/edit course form to Course List page (Administrator)
+    move scripts to seperate file
+
+move start class form to Home page (Teacher) 
+    move scripts to seperate file
+
+Limit access to pages based on role
+
+Update models
+    Course needs to have Course Name field
