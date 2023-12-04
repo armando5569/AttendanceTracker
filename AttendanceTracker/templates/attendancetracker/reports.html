@@ -1,55 +1,8 @@
 {% extends "base.html" %}
 
-
 {% block content %}
 <div class="container py-5">
-    <h1>Reports</h1>
+<h1>Reports</h1>
 
-    <!-- Display options based on user role (teacher or school admin) -->
-    {% if user.is_teacher %}
-        <!-- Teacher-specific content -->
-        <h2>Your Class Reports</h2>
-        <p>Select a date range to generate reports for your class:</p>
-        <!-- Add a form for teacher-specific functionality -->
-        <!-- You can add date pickers, dropdowns, or other input fields here -->
-        <form method="post" action="{% url 'generate_teacher_report' %}">
-            {% csrf_token %}
-            <!-- Add form fields and submit button for teacher reports -->
-            <!-- Example: Start Date, End Date, Generate Report button -->
-            <input type="date" name="start_date" required>
-            <input type="date" name="end_date" required>
-            <input type="submit" value="Generate Report">
-        </form>
-    {% elif user.is_school_admin %}
-        <!-- School admin-specific content -->
-        <h2>Schoolwide Reports</h2>
-        <p>Select a course to generate reports for the entire class:</p>
-        <!-- Add a form for school admin-specific functionality -->
-        <!-- You can add dropdowns or other input fields to select courses -->
-        <form method="post" action="{% url 'generate_school_admin_report' %}">
-            {% csrf_token %}
-            <!-- Add form fields and submit button for school admin reports -->
-            <!-- Example: Course dropdown, Generate Report button -->
-            <select name="course" required>
-                <!-- Populate this dropdown with courses from the database -->
-                <!-- You can replace these options with data from your database -->
-                <option value="1">Course 1</option>
-                <option value="2">Course 2</option>
-                <!-- Add more options based on your database -->
-            </select>
-            <input type="submit" value="Generate Report">
-        </form>
-    {% endif %}
-
-    <!-- Display the generated reports here -->
-    <!-- You can iterate over the reports from the database and display them -->
-    <!-- Example: Displaying a list of reports -->
-    <h2>Generated Reports</h2>
-    <ul>
-        <!-- Replace these placeholders with data from your database -->
-        <li>Report 1</li>
-        <li>Report 2</li>
-        <!-- Add more items based on your database -->
-    </ul>
 </div>
 {% endblock content %}

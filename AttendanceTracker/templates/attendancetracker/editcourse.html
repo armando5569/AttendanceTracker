@@ -1,74 +1,8 @@
 {% extends "base.html" %}
 
-
 {% block content %}
 <div class="container py-5">
-    <h1>Add Courses</h1>
-    <!-- Need to create a menu to edit courses for sys admin -->
-</div>
+<h1>Attendance Confirmation</h1>
 
-<div class="container py-5">
-    <!-- Add Course Button -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCourseModal">
-        Add Course
-    </button>
-
-    <!-- Add Course Modal -->
-    <div class="modal fade" id="addCourseModal" tabindex="-1" role="dialog" aria-labelledby="addCourseModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="addCourseModalLabel">Add Course</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <!-- Form for adding a new course -->
-                    <form method="post" action="{% url 'add_course' %}">
-                        {% csrf_token %}
-                        <div class="form-group">
-                            <label for="teacher">Teacher:</label>
-                            <select class="form-control" id="teacher" name="teacher">
-                                {% for teacher in teachers %}
-                                    <option value="{{ teacher.id }}">{{ teacher.name }}</option>
-                                {% endfor %}
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="courseName">Course Name:</label>
-                            <input type="text" class="form-control" id="courseName" name="courseName">
-                        </div>
-                        <div class="form-group">
-                            <label for="students">Students:</label>
-                            <select class="form-control" id="students" name="students" multiple>
-                                {% for student in students %}
-                                    <option value="{{ student.id }}">{{ student.name }}</option>
-                                {% endfor %}
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="startDate">Start Date:</label>
-                            <input type="date" class="form-control" id="startDate" name="startDate">
-                        </div>
-                        <div class="form-group">
-                            <label for="endDate">End Date:</label>
-                            <input type="date" class="form-control" id="endDate" name="endDate">
-                        </div>
-                        <div class="form-group">
-                            <label for="startTime">Start Time:</label>
-                            <input type="time" class="form-control" id="startTime" name="startTime">
-                        </div>
-                        <div class="form-group">
-                            <label for="endTime">End Time:</label>
-                            <input type="time" class="form-control" id="endTime" name="endTime">
-                        </div>
-                        <!-- Include the form fields for adding a new course as before -->
-                        <button type="submit" class="btn btn-primary">Save</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
 {% endblock content %}

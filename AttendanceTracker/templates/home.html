@@ -4,58 +4,13 @@
 {% block content %}
 <div class="container py-5">
 <H1>Student Attendance Tracker</H1>
-<br>
+
 <!-- home page when user is logged in -->
 {% if user.is_authenticated %}
-
-  <h2>Hi, 
-    {% if user.first_name != "" %}
-      {{ user.first_name }}!
-    {% else %}
-      {{ user.username }}!
-    {% endif %} 
-  </h2>
-  <br>
-
-  {% if user.roleID == 3 %}
-    <p>You are logged in as an Administrator</p>
-    <div>
-      <a class="btn btn-primary" href="{% url 'courses' %}" role="button">Course List</a>
-      
-      <br>
-      <br>
-    </div>
-  {% elif  user.roleID == 2 %}
-    <p>You are logged in as a Teacher</p>
-    <div>
-      <a class="btn btn-primary" href="{% url 'startclass' %}" role="button">Start Class</a>
-      <!--create a table listing courses where User is the assigned teacher. Each class will have a 'Start Class' button
-      Clicking the 'Start Class' button will create a new entry in the Classes table including the time stamp.
-      It will also direct to the Start Class page displaying the randomly generated code to be given to students. -->
-      <br>
-      <br>
-    </div>
-  {% elif  user.roleID == 1 %}
-    <p>You are logged in as a Student</p>
-    <div>  
-      <form>
-        <div class="mb-3">
-       
-        <a class="btn btn-primary" href="{% url 'studcode' %}" role="button">Code Entry</a>  
-        </div>
-        
-      </form>
-      <br>
-    </div>
-  {% else %}
-    <p>You do not have a role. Please see an administrator. </p>
-  {% endif %}
-
-
-  <!--Reports link is available for all users-->
-  <div>
-    <a class="btn btn-primary" href="{% url 'reports' %}" role="button">Reports</a>
-  </div>
+  <h2>Hi {{ user.username }}! </h2>
+  <p>This is a placeholder until the class lists become available. </p>
+  <p><a href="{% url 'logout' %}">Log Out</a></p>
+  <p><a href="{% url 'password_reset' %}">Reset Password</a></p>
 
 <!-- home page when user is not logged in -->
 {% else %}
