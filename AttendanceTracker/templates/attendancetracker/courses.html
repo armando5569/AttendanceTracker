@@ -2,9 +2,54 @@
 
 {% block content %}
 <div class="container py-5">
-<h1>Courses</h1>
-<br>
-<h2>Course List</h2>
+  <h1>Courses</h1>
+  <br>
+  <h2>Course List</h2>
+  <p>A list of courses for the current semester will be listed here</p>
+  <!--each course listed will have an edit button. It will be the same form as adding a new course, but be
+  prefilled with the selected course's info-->
+  <br>
 
-</div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Course Name</th>
+        <th scope="col">Course ID</th>
+        <th scope="col">Section Number</th>
+        <th scope="col">Instructor</th>
+      </tr>
+    </thead> 
+    <tbody>
+      <tr>
+        <tr>
+          <td>
+            Courses.CourseID
+          </td>
+          <td>
+            Courses.CourseName
+          </td>
+          <td>
+            Section Number?
+          </td>
+          <td>
+            Teacher name using TeacherID from TeacherAssignment
+          </td>
+          <td>
+            <a type="button" class="btn btn-secondary btn-sm" href= # role="button" disabled>Edit Course</a>
+          </td>
+        </tr>
+      </tr>
+      <!-- 
+      {% for course in courses %}
+        <tr>
+            <td>{{course.courseID}}</td>    
+        </tr>
+      {% endfor %}
+      -->
+    </tbody>
+  </table>
+
+  <br>
+  <a class="btn btn-primary" href="{% url 'editcourse' %}" role="button">Add Courses</a>
+  </div>
 {% endblock content %}
